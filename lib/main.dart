@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
       // home: Exercies1()
       // home: Exercies2()
       // home: Exercies3()
-      // home: Exercies4()
       home: Exercise4(),
     );
   }
