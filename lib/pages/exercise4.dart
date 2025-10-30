@@ -9,19 +9,37 @@ class Exercise4 extends StatelessWidget {
       padding: EdgeInsets.all(50),
       child: Column(
         children: [
-          OOPWidget(color: Colors.blue[100]),
-          DartWidget(color: Colors.blue[400]),
-          FlutterWidget(color1: Color(0xFF42A5F5), color2: Color(0xFF002D52)),
+          ButtonWidget(
+            text: "OOP",
+            color1: const Color(0xFFBBDEFB),
+            color2: const Color(0xFFBBDEFB),
+          ),
+          ButtonWidget(
+            text: "Dart",
+            color1: const Color(0xFF42A5F5),
+            color2: const Color(0xFF42A5F5),
+          ),
+          ButtonWidget(
+            text: "Flutter",
+            color1: Color(0xFF42A5F5),
+            color2: Color(0xFF002D52),
+          ),
         ],
       ),
     );
   }
 }
 
-class FlutterWidget extends StatelessWidget {
+class ButtonWidget extends StatelessWidget {
+  final String text;
   final Color color1;
   final Color color2;
-  const FlutterWidget({super.key, required this.color1, required this.color2});
+  const ButtonWidget({
+    super.key,
+    required this.text,
+    required this.color1,
+    required this.color2,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,45 +50,7 @@ class FlutterWidget extends StatelessWidget {
         gradient: LinearGradient(colors: [color1, color2]),
       ),
       child: Center(
-        child: Text("FLUTTER", style: TextStyle(color: Colors.white)),
-      ),
-    );
-  }
-}
-
-class DartWidget extends StatelessWidget {
-  Color? color;
-  DartWidget({super.key, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: color,
-      ),
-      child: Center(
-        child: Text("DART", style: TextStyle(color: Colors.white)),
-      ),
-    );
-  }
-}
-
-class OOPWidget extends StatelessWidget {
-  Color? color;
-  OOPWidget({super.key, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: color,
-      ),
-      child: Center(
-        child: Text("OOP", style: TextStyle(color: Colors.white)),
+        child: Text(text, style: TextStyle(color: Colors.white)),
       ),
     );
   }
